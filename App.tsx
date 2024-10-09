@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.neueBox}>
-        <Text style={{color: '#eee', fontSize: 18}}>Qual É O Tema?</Text>
+        <Text style={{color: '#eee', fontSize: 18}}>Qual É O Tema..?</Text>
       </View>
       <StatusBar style="light" />
     </View>
