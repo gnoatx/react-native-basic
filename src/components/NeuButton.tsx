@@ -8,24 +8,24 @@ import { RootStackParamList } from "../services/RootStackParamList";
 
 type GalleryProps = {
   target: 'Gallery',
-  id: string,
+  name: string,
   children: any,
 }
 
 type OtherProps = {
   target: Exclude<keyof RootStackParamList, 'Gallery'>,
-  id?: never,
+  name?: never,
   children: any,
 }
 
 type Props = GalleryProps | OtherProps
  
-export function NeuButton({ target, id, children }: Props) {
+export function NeuButton({ target, name, children }: Props) {
   const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
 
   function navigate() {
     if (target === 'Gallery') {
-      navigation.navigate(target, { id })
+      navigation.navigate(target, { name: name })
     } else {
       navigation.navigate(target)
     }
@@ -73,8 +73,10 @@ const ShadowPresets = {
 const styles = StyleSheet.create({
   neueButton: {
     display: 'flex',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    gap: 10,
     paddingHorizontal: 15,
     paddingVertical: 15,
     ...radius,

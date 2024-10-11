@@ -2,8 +2,8 @@
 
 export type RootStackParamList = {
   Home: undefined;
-  Gallery: { id: string };
+  Gallery: { name: string };
   Credits: undefined;
 }
 
-const a: keyof RootStackParamList = "Home"
+// const a: keyof RootStackParamList = "Home"
