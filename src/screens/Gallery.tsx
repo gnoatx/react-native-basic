@@ -1,27 +1,39 @@
-import { RouteProp } from "@react-navigation/native-stack";
+import { type RouteProp } from "@react-navigation/native";
 import { View, Text, Image, StyleSheet } from "react-native";
 import { RootStackParamList } from "../services/RootStackParamList";
+import { NeuBox } from "../components/NeuBox";
 
 type Props = {
-  route: RouteProp<{ params: { name: keyof typeof renders } }, 'Gallery'>
-}
-const renders = {
-  'rajang': require('../../assets/renders/023_05.png'),
-  'nargacuga': require('../../assets/renders/037_02.png'),
-  'ludroth': require('../../assets/renders/047_00.png'),
-  'amatsu': require('../../assets/renders/058_00.png'),
-  'valstrax': require('../../assets/renders/086_08.png'),
-  'lunagaron': require('../../assets/renders/133_00.png'),
+  route: RouteProp<RootStackParamList, 'Gallery'>
 }
 
 export default function Gallery({ route }: Props) {
-  const { name }: { name: keyof typeof renders } = route.params
-  console.log(name);
+  const { name } = route.params
   
+  const renders = {
+    'Rajang': require('../../assets/renders/023_05.png'),
+    'Nargacuga': require('../../assets/renders/037_02.png'),
+    'Ludroth': require('../../assets/renders/047_00.png'),
+    'Amatsu': require('../../assets/renders/058_00.png'),
+    'Valstrax': require('../../assets/renders/086_08.png'),
+    'Lunagaron': require('../../assets/renders/133_00.png'),
+  }
+
+  const names = {
+    'Rajang': 'Furious Rajang',
+    'Nargacuga': 'Lucent Nargacuga',
+    'Ludroth': 'Royal Ludroth',
+    'Amatsu': 'Amatsu',
+    'Valstrax': 'Risen Valstrax',
+    'Lunagaron': 'Lunagaron',
+  }
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={renders[name]}/>
+      <NeuBox>
+        <Text style={styles.text}>{names[name as keyof typeof names]}</Text>
+      </NeuBox>
+      <Image resizeMode={'contain'} style={styles.image} source={renders[name as keyof typeof renders]}/>
     </View>
   )
 }
@@ -32,11 +44,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#111',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 30,
   },
   image: {
-    width: '100',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-  }
+    flex: 1,
+    width: '100%',
+  },
+  text: {
+    color: '#eee',
+    fontWeight: '900',
+    fontSize: 18,
+  },
 })

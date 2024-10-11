@@ -14,28 +14,28 @@ export default function Homepage({ route }: Props) {
     <View style={styles.container}>
       <NeuBox><Text style={styles.h1}>Bem vindo</Text></NeuBox>
       <View style={styles.buttons}>
-        <NeuButton target={'Gallery'} name={'rajang'}>
-          <Icon name={'rajang'}/>
+        <NeuButton target={'Gallery'} name={'Rajang'}>
+          <Icon name={'Rajang'}/>
           <Text style={styles.text}>Rajang</Text>
         </NeuButton>
-        <NeuButton target={'Gallery'} name={'nargacuga'}>
-          <Icon name={'nargacuga'}/>
+        <NeuButton target={'Gallery'} name={'Nargacuga'}>
+          <Icon name={'Nargacuga'}/>
           <Text style={styles.text}>Nargacuga</Text>
         </NeuButton>
-        <NeuButton target={'Gallery'} name={'ludroth'}>
-          <Icon name={'ludroth'}/>
+        <NeuButton target={'Gallery'} name={'Ludroth'}>
+          <Icon name={'Ludroth'}/>
           <Text style={styles.text}>Ludroth</Text>
         </NeuButton>
-        <NeuButton target={'Gallery'} name={'amatsu'}>
-          <Icon name={'amatsu'}/>
+        <NeuButton target={'Gallery'} name={'Amatsu'}>
+          <Icon name={'Amatsu'}/>
           <Text style={styles.text}>Amatsu</Text>
         </NeuButton>
-        <NeuButton target={'Gallery'} name={'valstrax'}>
-          <Icon name={'valstrax'}/>
+        <NeuButton target={'Gallery'} name={'Valstrax'}>
+          <Icon name={'Valstrax'}/>
           <Text style={styles.text}>Valstrax</Text>
         </NeuButton>
-        <NeuButton target={'Gallery'} name={'lunagaron'}>
-          <Icon name={'lunagaron'}/>
+        <NeuButton target={'Gallery'} name={'Lunagaron'}>
+          <Icon name={'Lunagaron'}/>
           <Text style={styles.text}>Lunagaron</Text>
         </NeuButton>
       </View>
