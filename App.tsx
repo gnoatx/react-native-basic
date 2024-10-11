@@ -1,34 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer, ParamListBase } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import { RootStackParamList } from './src/services/RootStackParamList';
+import Homepage from './src/screens/Homepage';
+import Credits from './src/screens/Credits';
 
 export default function App() {
+  const Stack = createNativeStackNavigator<RootStackParamList>()
+
   return (
-    <View style={styles.container}>
-      <View style={styles.neueBox}>
-        <Text style={{color: '#eee', fontSize: 18}}>Qual É O Tema..?</Text>
-      </View>
-      <StatusBar style="light" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name='Home' component={Homepage} options={{title: 'Página Inicial', ...headerStyle}}/>
+        <Stack.Screen name='Credits' component={Credits} options={{title: 'Outra Página', ...headerStyle}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+const headerStyle = {
+  headerStyle: {
     backgroundColor: '#111',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  neueBox: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '50%',
-    height: '15%',
-    borderRadius: 30,
-    shadowColor: '#fff',
-    shadowOffset: {width: 500, height: 500},
-    shadowRadius: 55,
-    backgroundColor: '#555',
-  },
-});
+  headerTintColor: '#eee',
+}
